@@ -8,8 +8,8 @@ import urllib, time
 squid = Squid(18, 23, 24)
 cheerlights_url = "http://api.thingspeak.com/channels/1417/field/1/last.txt"
 
-# setup a map data structure with the RGB values for the different colours 
-colour_map = {"red":(100,0,0),
+# setup a map data structure with the RGB values for the different colors 
+color_map = {"red":(100,0,0),
              "green":(0,100,0),
              "blue":(0,0,100),
              "cyan":(0,50,100),
@@ -25,11 +25,11 @@ colour_map = {"red":(100,0,0),
 try:
     while True:
         cheerlights = urllib.urlopen(cheerlights_url) # Open cheerlights file via URL
-        chosen_colour = cheerlights.read()            # Read the last cheerlights colour
+        chosen_color = cheerlights.read()             # Read the last cheerlights colour
         cheerlights.close()                           # Close cheerlights file
         print(chosen_color)                       
-
-        squid.set_color(colour_map[chosen_colour])
+        color = color_map.get(chosen_color, (0, 0, 0)) # LED off if color name not found
+        squid.set_color(color)
         time.sleep(2)
         
 finally: 
