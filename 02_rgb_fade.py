@@ -1,4 +1,4 @@
-# 02_rgb.py
+# 02_rgb_fade.py
 # Turn on the RGB LED colours for 1 second each
 
 from squid import *
@@ -8,12 +8,9 @@ squid = Squid(18, 23, 24)
 
 try:
     while True:
-        squid.set_color(RED)
-        time.sleep(1)
-        squid.set_color(GREEN)
-        time.sleep(1)
-        squid.set_color(BLUE)
-        time.sleep(1)
+        for i in range(0, 100):
+            squid.set_color(i, 0, 0)
+            time.sleep(0.05)
         
 finally: 
     GPIO.cleanup()
