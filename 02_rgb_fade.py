@@ -9,7 +9,7 @@ squid = Squid(18, 23, 24)
 try:
     while True:
         for i in range(0, 100):
-            squid.set_color(i, 0, 0)
+            squid.set_color((i, 0, 0))
             time.sleep(0.05)
         
 finally: 
