@@ -1,8 +1,10 @@
 # 04_movement.py
 # Uses the ultrasonic rangefinder to detect movement
 
-from rrb2 import *
+from rrb3 import *
 import time
+
+threshold = 5
 
 rr = RRB3()
 reference = rr.get_distance()
@@ -16,7 +18,7 @@ while True:
     time.sleep(0.3)
     reading = rr.get_distance()
     difference = reading - reference    
-    if difference < -1 or difference > 1:
+    if difference < -threshold or difference > threshold:
         print("Movement detected")
         for a in range(5):        
             rr.set_led1(1)
