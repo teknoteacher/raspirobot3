@@ -4,7 +4,7 @@
 from rrb3 import *
 import time
 
-threshold = 5
+threshold = 10
 
 rr = RRB3()
 reference = rr.get_distance()
@@ -17,8 +17,8 @@ print("Press CTRL-c to quit the program")
 while True:
     time.sleep(0.3)
     reading = rr.get_distance()
-    difference = reading - reference    
-    if difference < -threshold or difference > threshold:
+    difference = abs(reading - reference)   
+    if difference > threshold:
         print("Movement detected")
         for a in range(5):        
             rr.set_led1(1)
@@ -28,3 +28,4 @@ while True:
             rr.set_led1(0)
             rr.set_led2(0)           
             time.sleep(0.3)
+    reference = reading
