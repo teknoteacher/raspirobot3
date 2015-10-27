@@ -1,7 +1,7 @@
 # 08_manual_robot.py
 # Use the arrow keys to direct the robot
 
-from rrb2 import *
+from rrb3 import *
 import sys
 import tty
 import termios
