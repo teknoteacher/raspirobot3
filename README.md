@@ -1,2 +1,5 @@
 # raspirobot3
-Project files for Monk Makes RasPiRobot3 
+
+Project files for the Monk Makes RasPiRobot Rover Kit.
+
+A collaboration between Alan O'Donohoe (@teknoteacher) and MonkMakes.com (@monkmakes)
